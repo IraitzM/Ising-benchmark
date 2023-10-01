@@ -1,7 +1,8 @@
+import time
 import dimod
 import numpy as np
-import time
 from dwave.cloud import Client
+import matplotlib.pyplot as plt
 
 def ising_generator(N:int):
     """
@@ -60,3 +61,27 @@ def submit_dwave(problem, token:str):
         result = sampler.result()
 
         return result['sampleset']
+
+def comparison_plot(arrays:np.array, labels:list[str], x_ticks: list[str]):
+
+    (n, r) = arrays.shape
+
+    # Normalize and change sign
+    for r_i in range(r):
+        arrays[:, r_i] = -1*(arrays[:, r_i]-np.max(arrays[:,r_i]))/np.min(arrays[:,r_i])
+
+    index = np.arange(r)
+    bar_width = 1/n
+
+    _, ax = plt.subplots()
+    for n_i in range(n):
+        _ = ax.bar(index+((n_i-n/2)*bar_width), arrays[n_i], bar_width, label=labels[n_i])
+
+    ax.set_xlabel('Instance')
+    ax.set_ylabel('Minimum energy gap (normalized)')
+    ax.set_title('Randomized Ising hamiltonian benchmark')
+    ax.set_xticks(index)
+    ax.set_xticklabels(x_ticks)
+    ax.legend()
+
+    plt.show()
