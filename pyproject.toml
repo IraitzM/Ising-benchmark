@@ -1,0 +1,21 @@
+[project]
+name = "ising-benchmark"
+version = "0.0.1"
+description = ""
+authors = [
+    {name = "IraitzM", email = "iraitzm@gmail.com"},
+]
+dependencies = [
+    "dwave-cloud-client>=0.10.6",
+    "python-dotenv>=1.0.0",
+    "dwave-neal>=0.6.0",
+    "simulated-bifurcation>=1.2.0",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = ""}
+
+[tool.pdm.dev-dependencies]
+notebooks = [
+    "ipykernel>=6.25.2",
+]
