@@ -61,7 +61,7 @@ def random_benchmark(max_sites, step, per_site):
 
                 dwave_e.append(e)
                 dwave_sol.append(solution)
-            except:
+            except Exception:
                 dwave_e.append(None)
                 dwave_sol.append([])
 
