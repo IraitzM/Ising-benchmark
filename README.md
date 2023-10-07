@@ -8,6 +8,27 @@ $$
 
 Quadratic combinatorial optimization problems can be mapped to this particular form. This means any solver finding the global minima/maxima for it would be a good candidate to solve quadratic combinatorial optimization problems.
 
+## Usage
+
+The code allows for being called from the terminal in order to generate the results. Through click on can access the instruction on how to call the _random_benchmark.py_ functionality.
+
+```sh
+python src/ising_benchmark/random_benchmark.py --help
+```
+
+Something similar to this should pop up:
+```
+Usage: random_benchmark.py [OPTIONS]
+
+  Randomized Ising benckmark
+
+Options:
+  --max_sites INTEGER  Maximum number of sites
+  --step INTEGER       Step size for the benchmark
+  --per_site INTEGER   Number of random examples per site
+  --help               Show this message and exit.
+```
+
 ## Techniques
 
 This repository will be used to benchmark different techniques for a variety of casuistic of the Ising Hamiltonian.
